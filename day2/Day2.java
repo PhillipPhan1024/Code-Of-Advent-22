@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Day2 {
     public static void main(String[] args) throws FileNotFoundException {
         partOne();
+        partTwo();
     }
 
     public static void partOne() throws FileNotFoundException {
@@ -38,6 +39,43 @@ public class Day2 {
                     totalScore += 3;
                 }
                 totalScore += 3;
+            }
+        }
+        scan.close();
+        System.out.println(totalScore);
+    }
+
+    public static void partTwo() throws FileNotFoundException {
+        File file = new File("Day2Input.txt");
+        int totalScore = 0;
+        Scanner scan = new Scanner(file);
+        while(scan.hasNextLine()) {
+            String first = scan.next();
+            String second = scan.next();
+            if(second.equals("X")) {
+                if(first.equals("A")) {
+                    totalScore += 3;
+                } else if(first.equals("B")) {
+                    totalScore += 1;
+                } else {
+                     totalScore += 2;
+                }
+            } else if(second.equals("Y")) {
+                if(first.equals("A")) {
+                    totalScore += 4;
+                } else if(first.equals("B")) {
+                    totalScore += 5;
+                } else {
+                    totalScore += 6;
+                }
+            } else {
+                if(first.equals("A")) {
+                    totalScore += 8;
+                } else if(first.equals("B")) {
+                    totalScore += 9;
+                } else {
+                    totalScore += 7;
+                }
             }
         }
         scan.close();
